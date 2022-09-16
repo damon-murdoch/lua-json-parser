@@ -158,37 +158,93 @@ if __name__ == '__main__':
             # Loop over the arguments
             for arg in args:
 
+                # List of files to process
+                files = []
+
                 # If the path is valid
                 if os.path.exists(arg):
 
-                    # Get the filename for the file
-                    filename = os.path.basename(arg)
+                    # If the path is a directory
+                    if os.path.isdir(arg):
 
-                    # Strip the file extension from the filename
-                    filename_no_ext = os.path.splitext(filename)[0]
-
-                    # Parse the lua content from the file
-                    lua = parse_lua(get_unicode(arg))
-
-                    # Attempt to create the output directory
-                    outpath = os.path.join(os.getcwd(), config.JSON_OUT)
-                    
-                    # If the output folder does not exist
-                    if not os.path.exists(outpath):
-
-                        # Create the output folder
-                        os.mkdir(outpath)
-
-                    # Write the json content to the file
-                    write_unicode(
-                        os.path.join(outpath, f"{filename_no_ext}.json"), 
-                        JSON.dumps(
-                            lua, 
-                            indent=config.JSON_INDENT, # Indent the json output
-                            ensure_ascii=config.JSON_ASCII, # Only use ascii characters
-                            sort_keys=config.JSON_SORT # Sort json keys
+                        log.write_log(
+                            f"Processing directory {arg} ...", 
+                            "info"
                         )
-                    )
+
+                        # Add all of the .lua files to the list
+                        for item in os.listdir(arg):
+
+                            # If the file is a .lua file
+                            if (item.endswith('.lua')):
+
+                                # Add the file to the list of files to process
+                                files.append(os.path.join(arg, item))
+                                
+                                log.write_log(
+                                    f"File found: {item}", 
+                                    "info"
+                                )
+
+                    else: # Path is file
+
+                        log.write_log(
+                            f"File found: {arg}", 
+                            "info"
+                        )
+
+                        # Add the file to the files list
+                        files.append(arg)
+
+                    # Loop over all of the files
+                    for item in files:
+
+                        # Get the filename for the file
+                        filename = os.path.basename(item)
+
+                        # Strip the file extension from the filename
+                        filename_no_ext = os.path.splitext(filename)[0]
+
+                        log.write_log(
+                            f"Processing file: {filename} ...", 
+                            "info"
+                        )
+
+                        # Parse the lua content from the file
+                        lua = parse_lua(get_unicode(item))
+
+                        # Attempt to create the output directory
+                        outpath = os.path.join(os.getcwd(), config.JSON_OUT)
+                        
+                        # If the output folder does not exist
+                        if not os.path.exists(outpath):
+
+                            # Create the output folder
+                            os.mkdir(outpath)
+
+                            log.write_log(
+                                f"Output path created: {outpath}", 
+                                "info"
+                            )
+
+                        # Output filename
+                        outfile = f"{filename_no_ext}.json"
+
+                        # Write the json content to the file
+                        write_unicode(
+                            os.path.join(outpath, outfile), 
+                            JSON.dumps(
+                                lua, 
+                                indent=config.JSON_INDENT, # Indent the json output
+                                ensure_ascii=config.JSON_ASCII, # Only use ascii characters
+                                sort_keys=config.JSON_SORT # Sort json keys
+                            )
+                        )
+
+                        log.write_log(
+                            f"File saved successfully: {outfile}", 
+                            "success"
+                        )
 
                 else: # Path is not valid
                     raise Exception(f"Path {arg} does not exist!")
