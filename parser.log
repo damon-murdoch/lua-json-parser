@@ -1,0 +1,29 @@
+[2022-09-17 04:33:24.208034] Log file created.
+[2022-09-17 04:33:24.208034] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:33:24.209033] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.209033] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.210029] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:33:24.210029] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.211027] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.423164] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:33:24.423164] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.424162] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.424162] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:33:24.427154] 'Index' object has no attribute 'id'
+[2022-09-17 04:33:24.427154] 'Index' object has no attribute 'id'
+[2022-09-17 04:37:55.534648] Starting lua parser ...
+[2022-09-17 04:37:55.535625] Script failed: Path d:\Games\Arcade\Bayshore\wmmt6\data_jp\msgdb\msgdb.l does not exist!
+[2022-09-17 04:38:01.274623] Starting lua parser ...
+[2022-09-17 04:38:54.365349] Starting lua parser ...
+[2022-09-17 04:39:50.152728] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:39:50.153725] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.154723] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.156718] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:39:50.161878] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.168685] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.477370] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:39:50.480362] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.481359] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.487343] Unhandled type: <class 'luaparser.astnodes.Index'>
+[2022-09-17 04:39:50.489337] 'Index' object has no attribute 'id'
+[2022-09-17 04:39:50.490335] 'Index' object has no attribute 'id'
